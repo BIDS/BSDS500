@@ -26,6 +26,7 @@ if nargin<5, nthresh = 99; end
 
 iids = dir(fullfile(imgDir,'*.jpg'));
 for i = 1:numel(iids),
+    disp('hqwhe')
     evFile4 = fullfile(outDir, strcat(iids(i).name(1:end-4), '_ev4.txt'));
     if ~isempty(dir(evFile4)), continue; end
     
@@ -35,14 +36,14 @@ for i = 1:numel(iids),
     evFile2 = fullfile(outDir, strcat(iids(i).name(1:end-4), '_ev2.txt'));
     evFile3 = fullfile(outDir, strcat(iids(i).name(1:end-4), '_ev3.txt'));
 
-    evaluation_bdry_image(inFile,gtFile, evFile1, nthresh, maxDist, thinpb);
+%     evaluation_bdry_image(inFile,gtFile, evFile1, nthresh, maxDist, thinpb);
     evaluation_reg_image(inFile, gtFile, evFile2, evFile3, evFile4, nthresh);
     
     disp(i);
 end
 
 %% collect results
-collect_eval_bdry(outDir);
+% collect_eval_bdry(outDir);
 collect_eval_reg(outDir);
 
 %% clean up

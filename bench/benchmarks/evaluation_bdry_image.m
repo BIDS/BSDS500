@@ -26,7 +26,7 @@ if nargin<6, thinpb = 1; end
 if nargin<5, maxDist = 0.0075; end
 if nargin<4, nthresh = 99; end
 
-[p,n,e,v]=fileparts(inFile);
+[~, ~, e]=fileparts(inFile);
 if strcmp(e,'.mat'),
     load(inFile);
 end

@@ -8,12 +8,12 @@ sumVOI = 0;
 for s = 1 : numel(groundTruth)
     gt = groundTruth{s}.Segmentation;
 
-    num1 = max(seg(:));
+    num1 = max(seg(:)) + 1;
     num2 = max(gt(:));
     confcounts = zeros(num1, num2);
     for i = 1:tx
         for j = 1:ty
-            u = seg(i,j);
+            u = seg(i,j) + 1;
             v = gt(i,j); 
             confcounts(u,v) = confcounts(u,v)+1;
         end

@@ -7,6 +7,7 @@ function [ bestF, bestP, bestR, bestT, F_max, P_max, R_max, Area_PR] = collect_e
 
 
 fname = fullfile(pbDir, 'eval_bdry.txt');
+% disp(dir(fname))
 if (length(dir(fname))==1),
   tmp = dlmread(fname); 
   bestT = tmp(1);
@@ -20,8 +21,10 @@ if (length(dir(fname))==1),
 else
 
     S = dir(fullfile(pbDir,'*_ev1.txt'));
-
+    disp(fullfile(pbDir,'*_ev1.txt'))
     % deduce nthresh from .pr files
+    disp(S)
+    disp(S(1).name)
     filename = fullfile(pbDir,S(1).name);
     AA = dlmread(filename); % thresh cntR sumR cntP sumP
 
